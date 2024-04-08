@@ -20,10 +20,10 @@ ALLOWED_HOSTS = []
 SESSION_COOKIE_AGE = 43200
 
 
-EMAIL_HOST='smtp.gmail.com'
+EMAIL_HOST='smtp.gmail.com' 
 EMAIL_PORT=587
-EMAIL_HOST_USER='webrdevo@gmail.com'
-EMAIL_HOST_PASSWORD='xazs ubif acfv rvuw'
+EMAIL_HOST_USER='misemambit@gmail.com'
+EMAIL_HOST_PASSWORD='btux hmyf evvb oxro'
 EMAIL_USE_TLS=True
 # Application definition
 

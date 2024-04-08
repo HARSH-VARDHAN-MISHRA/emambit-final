@@ -37,8 +37,6 @@ def equipment_view(request):
         if j.recived_equipment is not None and j.recived_equipment !='':
             recived_equipment.append(j)
     print(len(recived_equipment),'is recived equpment')
-    
-    
 
     return render(request,'equipment-page.html',{'equipment_data':equipment_data,'recived_equipment':recived_equipment})
 
@@ -585,7 +583,7 @@ def assignEngineer_view(request):
             except:
                 pass
                 # set your email inplace of emambit email here and remove this comment
-            subject, from_email, to = "Engineer Assigned", "webrdevo@gmail.com", assign_data.company_name.company_email
+            subject, from_email, to = "Engineer Assigned", "misemambit@gmail.com", assign_data.company_name.company_email
             text_content = "hi"
             html_content = f"<h1>We Assigned Our Engineers To Your Project</h1><br><p> <strong> Manager Name : <b>{assign_data.manager_name.first_name}</b></a></strong><br><strong> Engineer Phone : {assign_data.manager_name.user_phone}/</a></strong> <br><strong> Engineer Email : {assign_data.manager_name.email}</strong></strong><br><strong> Expected Reach Date : {assign_data.reach_date}</a></strong</p>"
             msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
@@ -853,12 +851,12 @@ def ProjectCompletion_view(request, id):
             data_to_report.ending_date=todended_date
             compelete_project = ProjectCompletion.objects.get(project=data_to_report)
             data_to_report.work_status = 'Pending'
-            data_to_report.project_link = f'https://emambit.pythonanywhere.com/report-preview/{compelete_project.id}/'
-            data_to_report.download_link = f'https://emambit.pythonanywhere.com/download-pdf/{compelete_project.id}/'
+            data_to_report.project_link = f'https://misemambit.com/report-preview/{compelete_project.id}/'
+            data_to_report.download_link = f'https://misemambit.com/download-pdf/{compelete_project.id}/'
             data_to_report.save()
-            subject, from_email, to = "Project Completed", "webrdevo@gmail.com", data_to_report.company_name.company_email
+            subject, from_email, to = "Project Completed", "misemambit@gmail.com", data_to_report.company_name.company_email
             text_content = "Hi, we have completed your project."
-            html_content = f"<p><h1>Hi, we have completed your project.</h1><br>Please check and give your remarks <strong><a href='https://emambit.pythonanywhere.com/report-preview/{compelete_project.id}/'>Click Here To Check Your Report</a></strong> message.</p>"
+            html_content = f"<p><h1>Hi, we have completed your project.</h1><br>Please check and give your remarks <strong><a href='https://misemambit.com/report-preview/{compelete_project.id}/'>Click Here To Check Your Report</a></strong> message.</p>"
             msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
             msg.attach_alternative(html_content, "text/html")
             msg.send()
@@ -884,7 +882,7 @@ def reportPreview_view(request,id):
         try:
             project_to_update.save()
             status_to_update.work_status="Done"
-            status_to_update.project_link=f'https://emambit.pythonanywhere.com/report-preview/{id}/'
+            status_to_update.project_link=f'https://misemambit.com/report-preview/{id}/'
             status_to_update.save()
             messages.success(request,'Thank You !  Have a Great Day')
             return redirect(f'/report-preview/{id}')
@@ -1047,7 +1045,8 @@ def addReimbursement_view(request):
             date=request.POST.get('date')
             work_description=request.POST.get('work_description')
             category=request.POST.get('category')
-            reimbursement_value=request.POST.get('reimbursement_value')
+            # reimbursement_value=request.POST.get('reimbursement_value')
+            reimbursement_value=request.POST.get('subt')
             advance=request.POST.get('advance')
             cost=request.POST.get('cost')
             reimbursement_images=request.FILES.getlist('attachment')

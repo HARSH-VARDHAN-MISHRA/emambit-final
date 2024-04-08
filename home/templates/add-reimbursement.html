@@ -158,6 +158,7 @@
                             <tr>
                                 <th>SUBTOTAL</th>
                                 <td id="subTotal"></td>
+                                <input type="number" id="subt" name="subt" min="0" readonly required hidden>
                             </tr>
                             <tr>
                                 <th>LESS CASH ADVANCE</th>
@@ -264,9 +265,6 @@
   </section>
 
     <script type="text/javascript">
-        function mainChange(){
-
-        }
         
         /* --- Script For Add the Rows --- */
         document.getElementById("AddRow").addEventListener("click", AddRow);
@@ -294,6 +292,7 @@
         }
         
         const subTotals = document.getElementById("subTotal")
+        const subt = document.getElementById("subt")
         function handleReimValue(ev) {
             subTotal = 0; // Reset subtotal
             let reimbursements_Values = document.querySelectorAll(".reimbursementxyz");
@@ -301,9 +300,10 @@
                 subTotal += parseInt(e.value) || 0;
             });
             
-            subTotals.innerHTML=subTotal
+            subTotals.innerHTML=subTotal;
+            subt.value=subTotal;
             reimbursement_value.value = subTotals;
-            // console.log("Sub total",subTotal);
+            console.log("Sub total",subt.value);
         }
         let advance_value = document.getElementById("advance"); 
         
