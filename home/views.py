@@ -585,7 +585,22 @@ def assignEngineer_view(request):
                 # set your email inplace of emambit email here and remove this comment
             subject, from_email, to = "Engineer Assigned", "misemambit@gmail.com", assign_data.company_name.company_email
             text_content = "hi"
-            html_content = f"<h1>We Assigned Our Engineers To Your Project</h1><br><p> <strong> Manager Name : <b>{assign_data.manager_name.first_name}</b></a></strong><br><strong> Engineer Phone : {assign_data.manager_name.user_phone}/</a></strong> <br><strong> Engineer Email : {assign_data.manager_name.email}</strong></strong><br><strong> Expected Reach Date : {assign_data.reach_date}</a></strong</p>"
+            # html_content = f"<h1>We Assigned Our Engineers To Your Project</h1><br><p> <strong> Manager Name : <b>{assign_data.manager_name.first_name}</b></a></strong><br><strong> Engineer Phone : {assign_data.manager_name.user_phone}/</a></strong> <br><strong> Engineer Email : {assign_data.manager_name.email}</strong></strong><br><strong> Expected Reach Date : {assign_data.reach_date}</a></strong</p>"
+            html_content = f"<p>Dear Sir,</p>\
+<p>We have assigned our engineers for your project. The details of the engineers are attached below.</p>\
+<p><strong> Manager Name : <b>{assign_data.manager_name.first_name}</b> </strong><br>\
+<strong> Engineer Phone : {assign_data.manager_name.user_phone}</strong><br>\
+<strong> Engineer Email : {assign_data.manager_name.email}</strong><br>\
+<strong> Expected Reach Date : {assign_data.reach_date}</strong></p>\
+<p>Thanks and Regards</p>\
+<p>Emambit Private Limited</p>\
+<p>Bhupendra I Co-founder</p>\
+<p>Mobile: <a href='tel:+919811226914'>+91 9811226914</a></p>\
+<p>Email: <a href='mailto:misemambit@gmail.com'>misemambit@gmail.com</a></p>\
+<p><a href='http://emambit.com'>http://emambit.com</a></p>\
+<p>Emambit is a Global ISO/IEC 20000-1: 2018 Engineering Consulting Company works on new greenfield projects for flexible packaging, New machine installation & commissioning, Worldwide plant/machine relocation from one factory to another factory, Plant technical audit, Merger & acquisitions, and JV for flexible packaging company, power quality audit, electrical safety audit, electrical consulting, and electrical execution work. Within our network, we have a comprehensive experienced professional team.</p>\
+<p>Contact : <a href='mailto:misemambit@gmail.com'>misemambit@gmail.com</a></p>\
+<p>Website : <a href='http://emambit.com'>http://emambit.com</a></p>"
             msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
             msg.attach_alternative(html_content, "text/html")
             msg.send()
