@@ -874,15 +874,15 @@ def ProjectCompletion_view(request, id):
             # html_content = f"<p><h1>Hi, we have completed your project.</h1><br>Please check and give your remarks <strong><a href='https://misemambit.com/report-preview/{compelete_project.id}/'>Click Here To Check Your Report</a></strong> message.</p>"
             html_content = f"<p>Dear Sir,</p>\
 <p>Please find the attached mail containing the engineer's field service report of your project. Please feel free to contact me in case you have any questions.</p>\
-<p><h1>Hi, we have completed your project.</h1><br>Please check and give your remarks <strong><a href='https://misemambit.com/report-preview/{complete_project.id}/'>Click Here To Check Your Report</a></strong> message.</p>\
+<h1>Hi, we have completed your project.</h1><br>\
+<p>Please check and give your remarks <strong><a href='https://misemambit.com/report-preview/{compelete_project.id}/'>Click Here To Check Your Report</a></strong> message.</p>\
 <p>Thanks and Regards</p>\
 <p>Emambit Private Limited</p>\
 <p>Bhupendra I Co-founder</p>\
 <p>Mobile: <a href=\"tel:+919811226914\">+91 9811226914</a> </p>\
 <p>Email: <a href=\"mailto:misemambit@gmail.com\">misemambit@gmail.com</a></p>\
-<p><a href=\"http://emambit.com\">http://emambit.com</a></p>\
+<p><a href=\"http://emambit.com\">http://www.emambit.com</a></p>\
 <p>Emambit is a Global ISO/IEC 20000-1: 2018 Engineering Consulting Company that works on new greenfield projects for flexible packaging, new machine installation & commissioning, worldwide plant/machine relocation from one factory to another factory, plant technical audit, merger & acquisitions, and JV for flexible packaging companies, power quality audit, electrical safety audit, electrical consulting, and electrical execution work. Within our network, we have a comprehensive experienced professional team.</p>\
-<p>Contact : <a href=\"mailto:{assign_data.manager_name.email}\">{assign_data.manager_name.email}</a></p>\
 <p>Website : <a href=\"http://emambit.com\">http://emambit.com</a></p>"
             msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
             msg.attach_alternative(html_content, "text/html")
